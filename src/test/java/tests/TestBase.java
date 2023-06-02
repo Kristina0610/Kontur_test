@@ -23,6 +23,7 @@ public class TestBase {
         Configuration.browser = browser[0];
         Configuration.browserVersion = browser[1];
         Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 20000;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
