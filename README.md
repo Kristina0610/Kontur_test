@@ -32,13 +32,6 @@
 - При прогоне тестов браузер запускается в [Selenoid](https://aerokube.com/selenoid/)
 - Для удаленного запуска реализована джоба в <code>Jenkins</code> с формированием Allure-отчета и отправкой результатов в <code>Telegram</code> при помощи бота 
 - Осуществлена интеграция с <code>Allure TestOps</code> и <code>Jira</code>
- 
-Содержание Allure-отчета:
-* Шаги теста
-* Скриншот страницы на последнем шаге
-* Page Source
-* Логи браузерной консоли
-* Видео прогона автотестов
 
 ## :arrow_forward: Запуск автотестов
 
@@ -59,6 +52,12 @@ gradle clean running_tests -DbaseUrl="https://kontur.ru" -Dbrowser="chrome:100.0
 </p>
 
 ### Результат выполнения теста
+Содержание:
+* Шаги теста
+* Скриншот страницы на последнем шаге
+* Page Source
+* Логи браузерной консоли
+* Видео прогона автотестов
 
 <p align="center">
 <img title="Test Results in Alure" src="media/screens/resultTest.png">
@@ -80,7 +79,13 @@ gradle clean running_tests -DbaseUrl="https://kontur.ru" -Dbrowser="chrome:100.0
 <img title="Allure TestOps DashBoard" src="media/screens/Launches_TestOps.png">
 </p>
 
-Результаты прохождения отдельных тестов:
+Результаты выполнения отдельных тестов:
+* Шаги теста
+* Скриншот страницы на последнем шаге
+* Page Source
+* Логи браузерной консоли
+* Видео прогона автотестов
+
 <p align="center">
 <img title="Allure TestOps DashBoard" src="media/screens/result_TestOps.png">
 </p>
@@ -91,8 +96,8 @@ gradle clean running_tests -DbaseUrl="https://kontur.ru" -Dbrowser="chrome:100.0
 <img title="Allure TestOps DashBoard" src="media/screens/jira.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
-После завершения сборки, бот созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
+### <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram
+После завершения сборки, бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 <p align="center">
 <img title="Allure TestOps DashBoard" src="media/screens/telegram.png">
 </p>
