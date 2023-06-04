@@ -22,7 +22,7 @@ import static io.qameta.allure.Allure.step;
 public class KonturTests extends TestBase{
     @Test
     @DisplayName("Выбор города для отображения вакансий")
-    void TestCityVacancies(){
+    void checkChoosingCityDisplayVacancies(){
         step("Открыть страницу с вакансиями", () -> {
             open("/career/vacancies/");
         });
@@ -38,7 +38,7 @@ public class KonturTests extends TestBase{
         });
     }
 
-    static Stream<Arguments> linksCategoryMenu() {
+    static Stream<Arguments> checkLinksCategoryMenu() {
         return Stream.of(
                 Arguments.of("Отчетность", "https://kontur.ru/products/reporting", "Все для отчетности"),
                 Arguments.of("Проверка контрагентов", "https://kontur.ru/products/check", "Контур.Фокус"),
@@ -49,7 +49,7 @@ public class KonturTests extends TestBase{
     }
     @MethodSource
     @ParameterizedTest(name = "Переход по элементу {0} в меню категорий")
-    void linksCategoryMenu(String element, String link, String heading){
+    void checkLinksCategoryMenu(String element, String link, String heading){
         step("Открыть главную страницу", () -> {
             open("/");
         });
@@ -66,7 +66,7 @@ public class KonturTests extends TestBase{
 
     @Test
     @DisplayName("Проверка отображения имени и фамилии авторизованного пользователя в выпадающем меню")
-    void loginAccount(){
+    void checkFullNameInDropDownMenu(){
         step("Открыть страницу авторизации", () -> {
             loginPage.openPage();
         });
@@ -89,7 +89,7 @@ public class KonturTests extends TestBase{
 
     @Test
     @DisplayName("Переход в личный кабинет пользователя при нажатии на 'Личный кабинет' в выпадающем меню")
-    void footerOpenChat(){
+    void checkLinkPersonalAccountInDropDownMenu(){
         step("Открыть страницу авторизации", () -> {
             loginPage.openPage();
         });
@@ -117,7 +117,7 @@ public class KonturTests extends TestBase{
 
     @Test
     @DisplayName("Работа поиска")
-    void testSearch(){
+    void checkSearch(){
         step("Открыть главную страницу", () -> {
             open("/");
         });
