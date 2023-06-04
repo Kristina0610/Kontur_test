@@ -39,9 +39,14 @@
 ```
 gradle clean running_tests -DbaseUrl="https://kontur.ru" -Dbrowser="chrome:100.0" -DbrowserSize="1920x1080"
 ```
-При выполнении команды тесты запустятся удаленно в <code>Selenoid</code>.
+При выполнении команды тесты запустятся локально.
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
+### Параметры сборки
+* <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://kontur.ru</code>.
+* <code>BROWSER</code> – браузер и его версия. По-умолчанию - <code>chrome:100.0</code>.
+* <code>BROWSER_SIZE</code> – размер окна браузера. По-умолчанию - <code>1920x1080</code>.
+* <code>REMOTE_BROWSER</code> – адрес удалённого браузера. По-умолчанию - <code>https://selenoid.autotests.cloud/wd/hub</code>.
 <p align="center">
 <img title="Jenkins Build" src="media/screens/jenkins.png">
 </p>
