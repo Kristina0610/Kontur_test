@@ -17,9 +17,9 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.remote = System.getProperty("remoteBrowser");
-        Configuration.baseUrl = System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize");
-        String[] browser = System.getProperty("browser").split(":");
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://kontur.ru");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
         Configuration.browser = browser[0];
         Configuration.browserVersion = browser[1];
         Configuration.pageLoadStrategy = "eager";

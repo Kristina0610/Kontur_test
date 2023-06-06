@@ -37,9 +37,14 @@
 
 ### Запуск тестов из терминала
 ```
-gradle clean running_tests -DbaseUrl="https://kontur.ru" -Dbrowser="chrome:100.0" -DbrowserSize="1920x1080"
+gradle clean running_tests
 ```
 При выполнении команды тесты запустятся локально.
+
+Также можно переопределить параметры запуска:
+```
+gradle clean running_tests -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BROWSER_SIZE} -DremoteBrowser=${REMOTE_BROWSER}
+```
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
 ### Параметры сборки
