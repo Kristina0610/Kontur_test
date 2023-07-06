@@ -46,7 +46,7 @@ gradle clean running_tests
 gradle clean running_tests -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BROWSER_SIZE} -DremoteBrowser=${REMOTE_BROWSER}
 ```
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/Students/job/polina_rumak_kontur/)
 ### Параметры сборки
 * <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://kontur.ru</code>.
 * <code>BROWSER</code> – браузер и его версия. По-умолчанию - <code>chrome:100.0</code>.
