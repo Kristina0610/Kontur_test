@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -17,8 +16,6 @@ public class LoginPage {
     }
 
     public LoginPage inputMail(String value) {
-        mail.sendKeys(Keys.CONTROL + "A");
-        mail.sendKeys(Keys.BACK_SPACE);
         mail.setValue(value);
         return this;
     }

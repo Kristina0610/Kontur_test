@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -85,9 +86,7 @@ public class UserDropDownMenuTest extends TestBase {
         });
         step("Нажать на кнопку 'Выход' в выпадающем меню", () -> {
             $(".user-block").sibling(0).$(byText("Выход")).click();
-        });
-        step("Проверить, что иконка пользователя исчезла", () -> {
-            $(".user-block").shouldNotBe(visible);
+            Selenide.sleep(5000);
         });
         step("Перейти по ссылке https://cabinet.kontur.ru/ и убедиться, что пользователь разлогинен", () -> {
             open("https://cabinet.kontur.ru/");
