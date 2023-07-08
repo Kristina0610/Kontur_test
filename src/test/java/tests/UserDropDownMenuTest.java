@@ -86,6 +86,9 @@ public class UserDropDownMenuTest extends TestBase {
         step("Нажать на кнопку 'Выход' в выпадающем меню", () -> {
             $(".user-block").sibling(0).$(byText("Выход")).click();
         });
+        step("Проверить, что иконка пользователя исчезла", () -> {
+            $(".user-block").shouldNotBe(visible);
+        });
         step("Перейти по ссылке https://cabinet.kontur.ru/ и убедиться, что пользователь разлогинен", () -> {
             open("https://cabinet.kontur.ru/");
             webdriver().shouldHave(urlStartingWith("https://auth.kontur.ru/"));
