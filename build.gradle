@@ -52,7 +52,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task running_tests(type: Test) {
-    useJUnitPlatform()
-}
