@@ -10,23 +10,19 @@ public class LoginPage {
             password = $("[type=password]"),
             loginButton = $("[data-tid=btn-login]");
 
-    public LoginPage openPage() {
+    public void openPage() {
         open("https://auth.kontur.ru/login/");
-        return this;
     }
 
-    public LoginPage inputMail(String value) {
+    public void inputMail(String value) {
         mail.setValue(value);
-        return this;
     }
 
-    public LoginPage inputPassword(String value) {
+    public void inputPassword(String value) {
         password.setValue(value);
-        return this;
     }
 
-    public LoginPage clickLoginButton() {
+    public void clickLoginButton() {
         loginButton.click();
-        return this;
     }
 }

@@ -3,7 +3,9 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.SelenoidConfig;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,9 +15,11 @@ import helpers.Attach;
 import java.util.Map;
 
 public class TestBase {
+    static SelenoidConfig selenoidConfig = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
+
     @BeforeAll
     static void beforeAll() {
-        Configuration.remote = System.getProperty("remoteBrowser");
+        Configuration.remote = System.getProperty("remoteBrowser", selenoidConfig.selenoidUrl());
         Configuration.baseUrl = System.getProperty("baseUrl", "https://kontur.ru");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
@@ -41,7 +45,9 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (Configuration.remote != null) {
+            Attach.addVideo();
+        }
         Selenide.closeWebDriver();
     }
 }

@@ -14,7 +14,7 @@ import static com.codeborne.selenide.WebDriverConditions.currentFrameUrlStarting
 import static io.qameta.allure.Allure.step;
 
 public class CategoryMenuTest extends TestBase {
-    static Stream<Arguments> checkLinksCategoryMenu() {
+    static Stream<Arguments> testLinksInTheCategoryMenu() {
         return Stream.of(
                 Arguments.of("Отчетность", "https://kontur.ru/products/reporting", "Все для отчетности"),
                 Arguments.of("Проверка контрагентов", "https://kontur.ru/products/check", "Контур.Фокус"),
@@ -26,18 +26,14 @@ public class CategoryMenuTest extends TestBase {
 
     @MethodSource
     @ParameterizedTest(name = "Переход по элементу {0} в меню категорий")
-    void checkLinksCategoryMenu(String element, String link, String heading) {
-        step("Открыть главную страницу", () -> {
-            open("/");
-        });
-        step("Нажать на элемент в меню категорий", () -> {
-            $(".category-menu-list").$(byText(element)).click();
-        });
-        step("Проверить, что произошел переход по ссылке", () -> {
-            webdriver().shouldHave(currentFrameUrlStartingWith(link));
-        });
-        step("Проверить заголовок на странице", () -> {
-            $("h1").shouldHave(text(heading));
-        });
+    void testLinksInTheCategoryMenu(String elementMenu, String link, String heading) {
+        step("Открыть главную страницу", () ->
+                open("/"));
+        step("Нажать на элемент в меню категорий", () ->
+                $(".category-menu-list").$(byText(elementMenu)).click());
+        step("Проверить, что произошел переход по ссылке", () ->
+                webdriver().shouldHave(currentFrameUrlStartingWith(link)));
+        step("Проверить заголовок на странице", () ->
+                $("h1").shouldHave(text(heading)));
     }
 }

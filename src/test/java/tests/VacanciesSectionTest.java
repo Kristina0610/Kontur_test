@@ -12,16 +12,13 @@ import static io.qameta.allure.Allure.step;
 public class VacanciesSectionTest extends TestBase {
     @Test
     @DisplayName("Выбор города для отображения вакансий")
-    void checkChoosingCityDisplayVacancies() {
-        step("Открыть страницу с вакансиями", () -> {
-            open("/career/vacancies/");
-        });
-        step("Открыть список городов", () -> {
-            $(".selectRegion").$(".arrow-control ").click();
-        });
-        step("Выбрать город 'Стерлитамак'", () -> {
-            $("#careerCityPopup").$(byText("Стерлитамак")).click();
-        });
+    void testChoosingCityDisplayVacancies() {
+        step("Открыть страницу с вакансиями", () ->
+                open("/career/vacancies/"));
+        step("Открыть список городов", () ->
+                $(".selectRegion").$(".arrow-control ").click());
+        step("Выбрать город 'Стерлитамак'", () ->
+                $("#careerCityPopup").$(byText("Стерлитамак")).click());
         step("Проверить, что выбран город 'Стерлитамак'", () -> {
             $(".selectRegion").$(".link").shouldHave(text("Стерлитамак"));
             webdriver().shouldHave(url("https://kontur.ru/career/vacancies/city-6345"));
@@ -30,18 +27,14 @@ public class VacanciesSectionTest extends TestBase {
 
     @Test
     @DisplayName("Открытие формы с вопросом к HR по вакансии")
-    void openingFormWithQuestionToHrAboutVacancy() {
-        step("Открыть страницу с вакансиями", () -> {
-            open("/career/vacancies/");
-        });
-        step("Перейти на карточку ванкасии", () -> {
-            $(".vacancy__title").click();
-        });
-        step("Нажать на кнопку 'пишите', которая открывает форму с вопросом к HR о вакансии", () -> {
-            $(".specialist__text").$(byText("пишите.")).click();
-        });
-        step("Проверить, что форма открылась", () -> {
-            $("#tinyFeedbackLightboxContent").$(".lightbox-title").shouldHave(text("Напишите нам"));
-        });
+    void testOpenFormWithQuestionToHrAboutVacancy() {
+        step("Открыть страницу с вакансиями", () ->
+                open("/career/vacancies/"));
+        step("Перейти на карточку ванкасии", () ->
+                $(".vacancy__title").click());
+        step("Нажать на кнопку 'пишите', которая открывает форму с вопросом к HR о вакансии", () ->
+                $(".specialist__text").$(byText("пишите.")).click());
+        step("Проверить, что форма открылась", () ->
+                $("#tinyFeedbackLightboxContent").$(".lightbox-title").shouldHave(text("Напишите нам")));
     }
 }
