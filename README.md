@@ -5,25 +5,25 @@
 - [Запуск автотестов](#arrow_forward-запуск-автотестов)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
-- [Интеграция с Allure TestOps](#-интеграция-с-allure-testOps)
+- [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
 - [Интеграция с Jira](#-интеграция-с-jira)
 - [Уведомления в Telegram](#-уведомления-в-telegram)
 - [Видео пример запуска тестов](#-видео-пример-запуска-тестов)
 ## :computer: Используемый стек
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="media/logo/Java.svg">
-<img width="6%" title="Selenide" src="media/logo/Selenide.svg">
-<img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
-<img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
-<img width="5%" title="Allure TestOps" src="media/logo/AllureTestOps.svg">
-<img width="6%" title="Gradle" src="media/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="media/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="media/logo/GitHub.svg">
-<img width="6%" title="Jenkins" src="media/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="media/logo/Telegram.svg">
-<img width="5%" title="Jira" src="media/logo/Jira.svg">
+<a href="https://www.jetbrains.com/idea/"><img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
+<a href="https://www.java.com/"><img width="6%" title="Java" src="media/logo/Java.svg">
+<a href="https://selenide.org/"><img width="6%" title="Selenide" src="media/logo/Selenide.svg">
+<a href="https://aerokube.com/selenoid/"><img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
+<a href="https://github.com/allure-framework/allure2"><img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
+<a href="https://qameta.io/"><img width="5%" title="Allure TestOps" src="media/logo/AllureTestOps.svg">
+<a href="https://gradle.org/"><img width="6%" title="Gradle" src="media/logo/Gradle.svg">
+<a href="https://junit.org/junit5/"><img width="6%" title="JUnit5" src="media/logo/JUnit5.svg">
+<a href="https://github.com/"><img width="6%" title="GitHub" src="media/logo/GitHub.svg">
+<a href="https://www.jenkins.io/"><img width="6%" title="Jenkins" src="media/logo/Jenkins.svg">
+<a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg">
+<a href="https://www.atlassian.com/ru/software/jira"><img width="5%" title="Jira" src="media/logo/Jira.svg">
 </p>
 
 - Тесты в данном проекте написаны на языке <code>Java</code> с использованием фреймворка для тестирования [Selenide](https://selenide.org/)
@@ -43,7 +43,14 @@ gradle clean test
 
 Также можно переопределить параметры запуска:
 ```
-gradle clean test -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BROWSER_SIZE} -DremoteBrowser=${REMOTE_BROWSER}
+gradle clean test -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BROWSER_SIZE}
+```
+Примечание: для локального запуска тестов необходимо в папку src/test/resources/properties добавить файл credentials.properties с почтой, паролем, именем и фамилией тестового пользователя. Пример заполненного файла:
+```
+mailAccount = primer@mail.ru
+passwordAccount = 123
+name = Polina
+surname = Rumak
 ```
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> [Сборка в Jenkins](https://jenkins.autotests.cloud/job/polina_rumak_kontur/)
@@ -51,12 +58,12 @@ gradle clean test -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BRO
 * <code>BASE_URL</code> – url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>https://kontur.ru</code>.
 * <code>BROWSER</code> – браузер и его версия. По-умолчанию - <code>chrome:100.0</code>.
 * <code>BROWSER_SIZE</code> – размер окна браузера. По-умолчанию - <code>1920x1080</code>.
-* <code>REMOTE_BROWSER</code> – адрес удалённого браузера. По-умолчанию - <code>https://selenoid.autotests.cloud/wd/hub</code>.
+  
 <p align="center">
 <img title="Jenkins Build" src="media/screens/jenkins.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure-отчета
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> [Пример Allure-отчета](https://jenkins.autotests.cloud/job/polina_rumak_kontur/9/allure/)
 <p align="center">
 <img title="Allure Overview" src="media/screens/allure.png">
 </p>
@@ -73,7 +80,7 @@ gradle clean test -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BRO
 <img title="Test Results in Alure" src="media/screens/resultTest.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
+## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> [Интеграция с Allure TestOps](https://allure.autotests.cloud/project/2463/launches)
 На вкладке Dashboards отображается:
 - Количество тест-кейсов и их статус
 - Соотношение ручных/автоматизированных тестов
@@ -100,7 +107,7 @@ gradle clean test -DbaseUrl=${BASE_URL} -Dbrowser=${BROWSER} -DbrowserSize=${BRO
 <img title="Allure TestOps DashBoard" src="media/screens/result_TestOps.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> Интеграция с Jira
+## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> [Интеграция с Jira](https://jira.autotests.cloud/browse/HOMEWORK-732)
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>. В задаче отображаются прикреплённые к ней тест-кейсы, а также результаты запусков/прохождения тестов.
 <p align="center">
 <img title="Allure TestOps DashBoard" src="media/screens/jira.png">
